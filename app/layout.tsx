@@ -6,7 +6,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Lozada Languages, LLC',
   description: 'Certified interpreting, translation, and interpreter training for RI and MA',
-  icons: { icon: '/logo-mark.svg' },
+  icons: { icon: '/llLogo.png' },
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   openGraph: {
     title: 'Lozada Languages, LLC',
@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="grid md:grid-cols-4 gap-8">
               <div className="md:col-span-2">
                 <div className="flex items-center space-x-3 mb-4">
-                  <img src="/logo-mark.svg" alt="Lozada Languages" className="w-10 h-10" />
+                  <img src="/llLogo.png" alt="Lozada Languages" className="w-10 h-10" />
                   <span className="text-xl font-bold">Lozada Languages</span>
                 </div>
                 <p className="text-slate-300 mb-4">
