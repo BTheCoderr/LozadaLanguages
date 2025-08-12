@@ -1,0 +1,21 @@
+<svg width="640" height="640" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title">
+  <title>Lozada Languages Emblem</title>
+  <defs>
+    <clipPath id="clipCircle">
+      <circle cx="320" cy="320" r="280"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#clipCircle)">
+    <circle cx="320" cy="320" r="280" fill="#FFFFFF"/>
+    <!-- green outer sweep -->
+    <path d="M610 330c0 155-125 280-280 280-64 0-123-21-170-56 86 5 193-14 257-78 54-54 74-129 57-208 85 37 136 115 136 62z" fill="#18A057"/>
+    <!-- coral sweep -->
+    <path d="M92 390c-40-106 22-224 132-265 76-28 155-10 209 38-86-2-186 26-245 85-46 46-71 98-96 142z" fill="#FF6A4D"/>
+    <!-- magenta sweep -->
+    <path d="M150 470c-32-34-55-78-62-128 83-28 170-24 223 6 40 23 68 55 84 97-80 26-168 37-245 25z" fill="#E5408A"/>
+    <!-- blue band -->
+    <path d="M435 184c54 37 86 96 86 161-56 29-126 35-186 10-40-17-74-49-92-90 81-41 158-70 192-81z" fill="#0E63A9"/>
+    <!-- inner sky blue -->
+    <circle cx="320" cy="320" r="84" fill="#2EA8E6"/>
+  </g>
+</svg>
