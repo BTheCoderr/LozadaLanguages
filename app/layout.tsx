@@ -6,11 +6,26 @@ export const metadata: Metadata = {
   title: 'Lozada Languages, LLC',
   description: 'Certified interpreting, translation, and interpreter training for RI and MA',
   icons: { icon: '/logo.svg' },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   openGraph: {
     title: 'Lozada Languages, LLC',
     description: 'Certified interpreting, translation, and interpreter training',
-    images: ['/og-image.png']
-  }
+    images: ['/og-image.png'],
+    url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+    siteName: 'Lozada Languages, LLC',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Lozada Languages, LLC',
+    description: 'Certified interpreting, translation, and interpreter training for RI and MA',
+    images: ['/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
