@@ -1,4 +1,22 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="32" height="32" rx="6" fill="#0A2540"/>
-  <text x="16" y="22" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#F5B700">L</text>
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Central light blue circle -->
+  <circle cx="60" cy="60" r="15" fill="#87CEEB"/>
+  
+  <!-- Orange segment (top) -->
+  <path d="M60 20 A40 40 0 0 1 100 60 L80 60 A20 20 0 0 0 60 40 Z" fill="#FF8C00"/>
+  
+  <!-- Dark blue segment (curved) -->
+  <path d="M100 60 A40 40 0 0 1 60 100 L60 80 A20 20 0 0 0 80 60 Z" fill="#1E3A8A"/>
+  
+  <!-- Magenta segment (left) -->
+  <path d="M20 60 A40 40 0 0 1 60 20 L60 40 A20 20 0 0 0 40 60 Z" fill="#DC143C"/>
+  
+  <!-- Green segment (bottom right) -->
+  <path d="M60 100 A40 40 0 0 1 20 60 L40 60 A20 20 0 0 0 60 80 Z" fill="#32CD32"/>
+  
+  <!-- Text: LOZADA -->
+  <text x="60" y="110" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#0A2540">LOZADA</text>
+  
+  <!-- Text: LANGUAGES -->
+  <text x="60" y="125" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#0A2540">LANGUAGES</text>
 </svg>
