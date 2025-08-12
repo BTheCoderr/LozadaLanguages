@@ -4,5 +4,24 @@
 
 :root {
   --bg: #F8FAFC;
+  --primary: #87CEEB;
+  --secondary: #FF8C00;
+  --accent: #DC143C;
 }
-html, body { background: var(--bg); color: #0A2540; }
+html, body { 
+  background: var(--bg); 
+  color: #0A2540; 
+}
+
+/* Custom gradient backgrounds using logo colors */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #87CEEB 0%, #1E3A8A 100%);
+}
+
+.bg-gradient-secondary {
+  background: linear-gradient(135deg, #FF8C00 0%, #DC143C 100%);
+}
+
+.bg-gradient-accent {
+  background: linear-gradient(135deg, #32CD32 0%, #87CEEB 100%);
+}

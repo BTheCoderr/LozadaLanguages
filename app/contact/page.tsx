@@ -18,113 +18,141 @@ export default function ContactPage() {
 
   const onSubmit = async (data: RequestInput) => {
     if (data.honey) return
-    const res = await fetch('/api/contact', { method: 'POST', body: JSON.stringify(data) })
-    if (res.ok) setSent(true)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      if (res.ok) setSent(true)
+    } catch (error) {
+      console.error('Failed to send:', error)
+    }
   }
 
   if (sent) {
     return (
-      <div className="mx-auto max-w-2xl px-6 py-24">
-        <h1 className="text-3xl font-semibold">Thank you</h1>
-        <p className="mt-4">We received your request and will reach out shortly.</p>
+      <div className="mx-auto max-w-2xl px-6 py-24 text-center">
+        <div className="bg-gradient-accent p-8 rounded-lg text-white">
+          <h1 className="text-3xl font-semibold mb-4">Thank you!</h1>
+          <p className="text-lg">We've received your request and will get back to you soon.</p>
+        </div>
       </div>
     )
   }
 
   return (
-    <div className="mx-auto max-w-2xl px-6 py-24">
-      <h1 className="text-3xl font-semibold">Request services or contact us</h1>
-      <p className="mt-3 text-[17px]">
-        Tell us what you need. We tailor every assignment and can meet urgent timelines.
-      </p>
+    <div className="mx-auto max-w-4xl px-6 py-16">
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-semibold text-brand-dark-blue mb-4">Request Our Services</h1>
+        <p className="text-xl text-gray-600">Tell us about your language access needs</p>
+      </div>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="mt-10 grid gap-5">
-        <div className="hidden">
-          <Input placeholder="Leave this empty" {...register('honey')} />
-        </div>
-
-        <div>
-          <FormLabel>Name</FormLabel>
-          <Input placeholder="Full name" {...register('name')} />
-          <ErrorText error={errors.name} />
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-5">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        <input type="text" name="honey" className="hidden" {...register('honey')} />
+        
+        <div className="grid md:grid-cols-2 gap-6">
           <div>
-            <FormLabel>Email</FormLabel>
-            <Input type="email" placeholder="you@example.com" {...register('email')} />
+            <FormLabel>Name *</FormLabel>
+            <Input {...register('name')} placeholder="Your full name" />
+            <ErrorText error={errors.name} />
+          </div>
+          <div>
+            <FormLabel>Email *</FormLabel>
+            <Input {...register('email')} type="email" placeholder="your@email.com" />
             <ErrorText error={errors.email} />
           </div>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6">
           <div>
             <FormLabel>Phone</FormLabel>
-            <Input placeholder="Optional" {...register('phone')} />
-          </div>
-        </div>
-
-        <div>
-          <FormLabel>Organization</FormLabel>
-          <Input placeholder="Court, hospital, school, law office or business" {...register('organization')} />
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-5">
-          <div>
-            <FormLabel>Service</FormLabel>
-            <select {...register('service')} className="w-full rounded-md border px-3 py-2">
-              <option value="interpreting">Interpreting</option>
-              <option value="translation">Translation</option>
-              <option value="training">Training</option>
-            </select>
-            <ErrorText error={errors.service as any} />
+            <Input {...register('phone')} placeholder="(555) 123-4567" />
+            <ErrorText error={errors.phone} />
           </div>
           <div>
-            <FormLabel>Preferred date or timeframe</FormLabel>
-            <Input placeholder="MM/DD or range" {...register('date')} />
+            <FormLabel>Organization</FormLabel>
+            <Input {...register('organization')} placeholder="Company or organization" />
+            <ErrorText error={errors.organization} />
           </div>
         </div>
 
         <div>
-          <FormLabel>Location or modality</FormLabel>
-          <Input placeholder="Providence courthouse, Zoom, hospital, school etc." {...register('location')} />
+          <FormLabel>Service Type *</FormLabel>
+          <div className="grid md:grid-cols-3 gap-4 mt-2">
+            {['interpreting', 'translation', 'training'].map(service => (
+              <label key={service} className="flex items-center space-x-2 cursor-pointer">
+                <input
+                  type="radio"
+                  value={service}
+                  {...register('service')}
+                  className="text-brand-orange focus:ring-brand-orange"
+                />
+                <span className="capitalize">{service}</span>
+              </label>
+            ))}
+          </div>
+          <ErrorText error={errors.service} />
         </div>
 
         <div>
-          <FormLabel>Languages needed</FormLabel>
-          <Controller
-            control={control}
-            name="languages"
-            render={({ field }) => (
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                {LANGUAGE_OPTIONS.map(lang => {
-                  const checked = field.value?.includes(lang)
-                  return (
-                    <label key={lang} className="flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        checked={checked}
-                        onChange={() => {
-                          if (checked) field.onChange(field.value.filter((l:string)=>l!==lang))
-                          else field.onChange([...(field.value||[]), lang])
-                        }}
-                      />
-                      <span>{lang}</span>
-                    </label>
-                  )
-                })}
-              </div>
-            )}
+          <FormLabel>Languages *</FormLabel>
+          <div className="grid md:grid-cols-3 gap-3 mt-2">
+            {LANGUAGE_OPTIONS.map(lang => (
+              <label key={lang} className="flex items-center space-x-2 cursor-pointer">
+                <Controller
+                  name="languages"
+                  control={control}
+                  render={({ field }) => (
+                    <input
+                      type="checkbox"
+                      value={lang}
+                      checked={field.value.includes(lang)}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          field.onChange([...field.value, lang])
+                        } else {
+                          field.onChange(field.value.filter((l: string) => l !== lang))
+                        }
+                      }}
+                      className="text-brand-orange focus:ring-brand-orange"
+                    />
+                  )}
+                />
+                <span>{lang}</span>
+              </label>
+            ))}
+          </div>
+          <ErrorText error={errors.languages} />
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          <div>
+            <FormLabel>Preferred Date</FormLabel>
+            <Input {...register('date')} type="date" />
+            <ErrorText error={errors.date} />
+          </div>
+          <div>
+            <FormLabel>Location</FormLabel>
+            <Input {...register('location')} placeholder="City, State or specific address" />
+            <ErrorText error={errors.location} />
+          </div>
+        </div>
+
+        <div>
+          <FormLabel>Project Details *</FormLabel>
+          <Textarea
+            {...register('details')}
+            placeholder="Please describe your specific needs, including any special requirements, context, or questions you have..."
           />
-          <ErrorText error={errors.languages as any} />
-        </div>
-
-        <div>
-          <FormLabel>Details</FormLabel>
-          <Textarea placeholder="Type of matter, parties, timeline, any special terminology" {...register('details')} />
           <ErrorText error={errors.details} />
         </div>
 
-        <Button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? 'Sending…' : 'Submit request'}
-        </Button>
+        <div className="text-center">
+          <Button type="submit" disabled={isSubmitting}>
+            {isSubmitting ? 'Sending...' : 'Submit Request'}
+          </Button>
+        </div>
       </form>
     </div>
   )
