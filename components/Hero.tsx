@@ -43,18 +43,13 @@ export default function Hero() {
           </div>
 
           <div className="relative flex flex-col items-center">
-            {/* Emblem logo as centerpiece */}
-            <div className="w-80 h-80 mb-6">
+            {/* Logo 3 as centerpiece with transparent background */}
+            <div className="w-80 h-80 mb-6 flex items-center justify-center">
               <img
-                src="/logo-emblem.svg"
-                alt="Lozada Languages emblem"
-                className="h-full w-full drop-shadow-lg"
+                src="/llLogo3.png"
+                alt="Lozada Languages"
+                className="h-full w-full object-contain drop-shadow-lg"
               />
-            </div>
-            {/* Company name underneath */}
-            <div className="text-center">
-              <div className="text-3xl font-bold text-slate-900 mb-2">LOZADA</div>
-              <div className="text-2xl font-semibold text-slate-700">LANGUAGES</div>
             </div>
           </div>
         </div>
