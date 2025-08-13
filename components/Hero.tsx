@@ -9,13 +9,13 @@ export default function Hero() {
           <div>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-sky-200/60 bg-white/70 px-3 py-1 text-xs text-sky-700 backdrop-blur">
               <span className="h-2 w-2 rounded-full bg-emerald-500" />
-              NCSC-aligned • 20+ years experience
+              NCSC-aligned • 20+ years experience • Federal Court certified
             </div>
             <h1 className="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
               Professional interpreting in court, medical, and community settings
             </h1>
             <p className="mt-3 text-xl text-slate-600">
-              Certified and qualified interpreters ready on demand. NCSC standards. Reliable, ethical, and prompt.
+              Certified and qualified interpreters ready on demand. NCSC standards. High-profile trials, federal court, and prison interpreting experience.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link
@@ -37,8 +37,8 @@ export default function Hero() {
 
             <div className="mt-10 flex flex-wrap items-center gap-6">
               <Badge label="NCSC standards" />
-              <Badge label="Ethics & confidentiality" />
-              <Badge label="On-site + remote" />
+              <Badge label="High-profile trials" />
+              <Badge label="Federal court certified" />
             </div>
           </div>
 
