@@ -49,7 +49,7 @@ export default function ContactPage() {
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        <input type="text" name="honey" className="hidden" {...register('honey')} />
+        <input type="text" className="hidden" {...register('honey')} />
         
         <div className="grid md:grid-cols-2 gap-6">
           <div>
