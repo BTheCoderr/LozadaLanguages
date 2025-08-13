@@ -33,7 +33,7 @@ export default function ContactPage() {
   if (sent) {
     return (
       <div className="mx-auto max-w-2xl px-6 py-24 text-center">
-        <div className="bg-gradient-accent p-8 rounded-lg text-white">
+        <div className="bg-gradient-to-r from-brand-primary to-brand-accent-green p-8 rounded-lg text-white">
           <h1 className="text-3xl font-semibold mb-4">Thank you!</h1>
           <p className="text-lg">We've received your request and will get back to you soon.</p>
         </div>
