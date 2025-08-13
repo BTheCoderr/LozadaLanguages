@@ -42,14 +42,19 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="relative">
-            {/* Logo emblem as subtle watermark */}
-            <div className="mx-auto aspect-square w-72 rounded-full bg-gradient-to-br from-sky-100 to-emerald-100 p-6 shadow-inner md:w-80">
+          <div className="relative flex flex-col items-center">
+            {/* Emblem logo as centerpiece */}
+            <div className="w-80 h-80 mb-6">
               <img
                 src="/logo-emblem.svg"
                 alt="Lozada Languages emblem"
-                className="h-full w-full drop-shadow-sm opacity-80"
+                className="h-full w-full drop-shadow-lg"
               />
+            </div>
+            {/* Company name underneath */}
+            <div className="text-center">
+              <div className="text-3xl font-bold text-slate-900 mb-2">LOZADA</div>
+              <div className="text-2xl font-semibold text-slate-700">LANGUAGES</div>
             </div>
           </div>
         </div>

@@ -5,7 +5,11 @@ export function Header() {
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200/60 shadow-sm">
       <div className="container mx-auto flex items-center justify-between gap-6 px-6 py-3">
         <Link href="/" className="flex items-center gap-3">
-          <img src="/logo-complete.svg" alt="Lozada Languages" className="h-16 w-auto" />
+          <img src="/logo-mark.svg" alt="Lozada Languages" className="h-8 w-8" />
+          <div className="leading-tight">
+            <div className="font-semibold text-slate-900">Lozada Languages</div>
+            <div className="text-xs text-slate-500">Professional Interpreting Services</div>
+          </div>
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm text-slate-700 md:flex">
