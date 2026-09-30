@@ -1,5 +1,11 @@
 # Lozada Languages, LLC
 
+<!-- repo-intro:start -->
+**Project snapshot:** Lozada Languages is a professional website for interpreting, translation, and interpreter-training services, with responsive service pages, lead capture, and server-side email handling.
+
+**What it demonstrates:** Next.js · TypeScript · Tailwind CSS · SMTP/email workflows · service-business UX.
+<!-- repo-intro:end -->
+
 A modern, professional website for Lozada Languages, LLC - certified interpreting, translation, and interpreter training services for Rhode Island and Massachusetts.
 
 ## Features
